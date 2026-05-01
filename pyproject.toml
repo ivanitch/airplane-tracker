@@ -1,9 +1,9 @@
 [project]
 name = "airplane-tracker"
 version = "0.1.0"
-description = ""
+description = "Курсовая работа по созданию системы анализа перемещений самолетов"
 authors = [
-    {name = "Sergey Ivanov",email = "ivanitch.mail@gmail.com"}
+    {name = "Sergey Ivanov", email = "ivanitch.mail@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
@@ -27,9 +27,8 @@ lint = [
 ]
 dev = [
     "pytest (>=9.0.2,<10.0.0)",
-    "pytest-cov (>=7.0.0,<8.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)"
 ]
-
 
 [tool.black]
 line-length = 119

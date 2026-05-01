@@ -1,0 +1,11 @@
+Name                Stmts   Miss  Cover
+---------------------------------------
+src/__init__.py         0      0   100%
+src/airplane.py        31      7    77%
+src/api.py              8      2    75%
+src/exceptions.py       4      0   100%
+src/json_saver.py      32      3    91%
+src/open_sky.py        22      0   100%
+src/saver.py           11      3    73%
+---------------------------------------
+TOTAL                 108     15    86%
