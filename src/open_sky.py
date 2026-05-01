@@ -1,6 +1,7 @@
 import requests
 
 from src.api import AbstarctAPI
+from src.exceptions import APIConnectionError
 
 
 class OpenSkyAPI(AbstarctAPI):
@@ -16,7 +17,7 @@ class OpenSkyAPI(AbstarctAPI):
         # Возвращает [south, north, west, east]
         return [float(x) for x in data[0]["boundingbox"]]
 
-    def get_aeroplanes(self, bbox: list) -> list:
+    def get_airplanes(self, bbox: list) -> list:
         if not bbox:
             return []
 
@@ -25,7 +26,7 @@ class OpenSkyAPI(AbstarctAPI):
         response = requests.get(url)
 
         if response.status_code != 200:
-            return []
+            raise APIConnectionError(f"OpenSky API вернул код ответа: {response.status_code}")
 
         data = response.json()
 

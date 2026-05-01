@@ -11,5 +11,7 @@ __pycache__/
 /.env
 /logs/
 
+/data/airplaneplanes.json
+
 # Testing (Dev)
 /test.py

@@ -7,5 +7,5 @@ class AbstarctAPI(ABC):
         pass
 
     @abstractmethod
-    def get_aeroplanes(self, bbox: list):
+    def get_airplanes(self, bbox: list):
         pass

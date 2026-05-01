@@ -1,4 +1,7 @@
 from unittest.mock import patch, MagicMock
+from src.exceptions import APIConnectionError
+
+import pytest
 
 
 class TestAPI:
@@ -36,20 +39,20 @@ class TestAPI:
         }
 
         with patch('requests.get', return_value=mock_response):
-            planes = api_client.get_aeroplanes([55.0, 56.0, 37.0, 38.0])
+            planes = api_client.get_airplanes([55.0, 56.0, 37.0, 38.0])
             assert len(planes) == 1
             assert planes[0][1] == "CALL123"
 
     def test_get_aeroplanes_fail(self, api_client):
-        # Ошибка сервера (код не 200)
+        # Ошибка сервера (код не 200) выбрасывается исключение APIConnectionError
         mock_response = MagicMock()
         mock_response.status_code = 404
 
         with patch('requests.get', return_value=mock_response):
-            planes = api_client.get_aeroplanes([0, 0, 0, 0])
-            assert planes == []
+            with pytest.raises(APIConnectionError):
+                api_client.get_airplanes([0, 0, 0, 0])
 
     def test_get_aeroplanes_no_bbox(self, api_client):
         # Проверка обработки пустого ввода координат
-        planes = api_client.get_aeroplanes([])
+        planes = api_client.get_airplanes([])
         assert planes == []
