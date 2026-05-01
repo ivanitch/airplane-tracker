@@ -2,5 +2,7 @@ Name              Stmts   Miss  Cover
 -------------------------------------
 src/__init__.py       0      0   100%
 src/airplane.py      31      7    77%
+src/api.py            8      2    75%
+src/open_sky.py      21      0   100%
 -------------------------------------
-TOTAL                31      7    77%
+TOTAL                60      9    85%
