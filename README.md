@@ -11,6 +11,7 @@ poetry run python main.py
 ## Запуск тестов
 
 ```bash
+# Запуск всех тестов
 poetry run pytest
 
 # Подробный вывод
