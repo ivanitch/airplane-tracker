@@ -1,6 +1,7 @@
 import pytest
 from src.airplane import Airplane
 from src.open_sky import OpenSkyAPI
+from src.json_saver import JSONSaver
 
 
 @pytest.fixture
@@ -21,7 +22,7 @@ def airplane_factory():
 
 
 @pytest.fixture
-def sample_planes(airplane_factory):
+def sample_airplanes(airplane_factory):
     """Список из нескольких типовых самолётов."""
     return [
         airplane_factory(callsign="SBI456", altitude=11000, velocity=300),
@@ -33,3 +34,10 @@ def sample_planes(airplane_factory):
 @pytest.fixture
 def api_client():
     return OpenSkyAPI()
+
+
+@pytest.fixture
+def temp_saver(tmp_path):
+    """Создает JSONSaver, работающий с временным файлом"""
+    temp_file = tmp_path / "test_data.json"
+    return JSONSaver(str(temp_file))

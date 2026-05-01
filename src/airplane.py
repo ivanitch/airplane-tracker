@@ -27,7 +27,7 @@ class Airplane:
         return self.altitude < other.altitude
 
     def __repr__(self) -> str:
-        return f"Airplane({self.callsign}, {self.origin_country}, V={self.velocity}, H={self.altitude})"
+        return f"Airplane({self.callsign}, {self.country}, V={self.velocity}, H={self.altitude})"
 
     @classmethod
     def cast_to_object_list(cls, data_list: list) -> list:
